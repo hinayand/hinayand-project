@@ -6,9 +6,9 @@ class ConfigIO():
 class ConfigWrite(ConfigIO):
   def __init__(self):
     pass
-  def writeByJson(self,JSONData,JSONFilePath):
+  def writeByJSON(self,JSONData,JSONFilePath):
     self.configIO=open(JSONFilePath,'w')
-    self.configIO.write(json.dump(JSONData))
+    self.configIO.write(json.dumps(JSONData))
     self.close()
     del self.configIO
 

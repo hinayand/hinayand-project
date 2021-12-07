@@ -11,7 +11,7 @@ class AppManaage(object):
         configWriteObject.writeByJSON(self.appDatabase,'config/appLib.conf')
         del self.appDatabase
     def appUnRegister(self,appName):
-        self.appDatabase=configReadObject.reaeJSONConfig('config/appLib.conf')
+        self.appDatabase=configReadObject.readJSONConfig('config/appLib.conf')
         del self.appDatabase[appName]
-        configWriteObject.writeByJSON(self.appDatabade,'config/appLib.conf')
+        configWriteObject.writeByJSON(self.appDatabase,'config/appLib.conf')
         delself.appDatabase
