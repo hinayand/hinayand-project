@@ -14,4 +14,9 @@ class AppManaage(object):
         self.appDatabase=configReadObject.readJSONConfig('config/appLib.conf')
         del self.appDatabase[appName]
         configWriteObject.writeByJSON(self.appDatabase,'config/appLib.conf')
-        delself.appDatabase
+        del self.appDatabase
+    def getAppList(self):
+        self.appDatabase=configReadObject.readJSONConfig('config/appLib.conf')
+        for key in self.appDatabase:
+            print('AppName:'+key+'    '+'AppPath:'+self.appDatabase.get(key))
+        del self.appDatabase
