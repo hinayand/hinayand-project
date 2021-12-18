@@ -32,3 +32,16 @@ class AppFileIO(AppApi):
     def readNetworkFile(self,httpFilePath):
         import requests
         return requests.get(httpFilePath).text
+
+class SmallProgram(AppApi):
+    def __init__(self):
+        pass
+    def run(self,path):
+        from mod import appLib
+        import requests
+        self.smallProgramIO=open('smallProgramTemp.py','w+')
+        self.smallProgramIO.write(requests.get(path).text)
+        self.runSmallProgramObject=appLib.AppLoader()
+        self.runSmallProgramObject.loadAppByName('smallProgram')
+        del self.smallProgramIO
+        del self.runSmallProgramObject
